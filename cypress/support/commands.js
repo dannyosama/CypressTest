@@ -8,6 +8,8 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
+//File Upload command
+import 'cypress-file-upload';
 //
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
@@ -23,3 +25,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+
+//-- Radya Labs --
+Cypress.Commands.add("login", (email, password) => { 
+       cy.visit('http://staging.radyalabs.id:7008')
+       cy.get('#app_login_form_username').type(email)
+       cy.get('[type=password]').type(password)
+       cy.get('#app_login_form_btn_signin').click()
+    
+    })
